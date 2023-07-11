@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="./static/js/main.js" defer></script>
     <title>IP Address Tracker</title>
 </head>
 <body>
+<header>
+    <h1>IP Address Tracker</h1>
 
-<h1>IP Address Tracker</h1>
+    <label class="inputField">
+        <input type="text" id="inputSearch" placeholder="Search for any IP address or domain"/>
+        <button id="btSearch"></button>
+    </label>
+</header>
+<main>
+    <ul id="ListDisplay"></ul>
+    <iframe
+        id="mapa"
+        width="425"
+        height="350"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-77.95898437500001%2C-33.22949814144951%2C-42.16552734375001%2C-15.64419660086606&amp;layer=mapnik"
+    >
+    </iframe>
+    <div class="pointer"></div>
 
-<h2>Search for any IP address or domain</h2>
-
-<ul id="ListDisplay"></ul>
+</main>
 </body>
 </html>
