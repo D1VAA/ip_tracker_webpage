@@ -1,7 +1,6 @@
 const mainDisplay = document.querySelector("#ListDisplay")
 const searchBt = document.querySelector("#btSearch")
 const inputSrch = document.querySelector("#inputSearch")
-const map = document.querySelector("#mapa")
 
 const DEFAULT_VALUES = [{
     ip: "192.168.13.1.0",
@@ -9,6 +8,14 @@ const DEFAULT_VALUES = [{
     timezone: -5,
     isp: "Vivo Fibra - Ultra Banda Larga"
 }]
+
+let map = L.map('map')
+map.setView([51.505, -0.09], 13)
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map)
 
 function generateHtmlList(apiResult) {
     mainDisplay.innerHTML = apiResult.map(({ip, location: {city, district, number, timezone}, isp}) => {
@@ -50,7 +57,7 @@ searchBt.addEventListener("click", async () => {
     const result = [{ip, location: {district: region, city, number: postalCode, timezone}, isp}]
     console.log(result)
     generateHtmlList(result)
-    map.src = `https://www.openstreetmap.org/#map=6/${lat}/${lng}`
+    const pos = [lat, lng]
+    map.setView(pos, 21)
 })
 
-let t = `https://www.openstreetmap.org/export/embed.html?bbox=${lng}%2C${lat}%2C${lng}%2C${lat}&amp;layer=mapnik`

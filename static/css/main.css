@@ -95,6 +95,7 @@ main {
     background-color: white;
     box-shadow: var(--default-shadow);
     padding: 3rem;
+    z-index: 5;
 }
 
 li {
@@ -118,9 +119,9 @@ li p {
     color: black;
 }
 
-#mapa {
-    height: 99.5%;
-    width: 100%;
+#map {
+    height: 65vh;
+    z-index: 0;
 }
 
 .pointer {
